@@ -1,0 +1,38 @@
+.searchbar_container {
+  display: flex;
+  align-items: center;
+  background-color: #000; /* 배경색 어둡게 */
+  margin-bo
+}
+
+.searchbar_container > input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 6px;
+  border: 2px solid #666; /* 흐린 회색 테두리 */
+  background-color: #000; /* 배경색 어두움 */
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
+
+.searchbar_container > input::placeholder {
+  color: #888;
+}
+
+.searchbar_container > button {
+  margin-left: 10px;
+  width: 80px;
+  padding: 14px 0;
+  border-radius: 6px;
+  border: none;
+  background-color: #434343; 
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.searchbar_container > button:hover {
+  background-color: #444;
+}
