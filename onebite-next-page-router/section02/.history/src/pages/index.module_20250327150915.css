@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 800px;
+}
+
+.container h3 {
+  margin-top: 20px;
+}
+
+.movieList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3등분 */
+  gap: 15px;
+  width: 100%; /* 부모 컨테이너 안에서만 */
+  box-sizing: border-box; /* 패딩·보더 포함 */
+}

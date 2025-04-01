@@ -1,0 +1,57 @@
+import SearchableLayout from "@/components/searchable-layout";
+import style from "./index.module.css";
+import { ReactNode } from "react";
+import MovieItem from "@/components/movie-item";
+import { InferGetServerSidePropsType } from "next";
+import fetchMovies from "@/lib/fetch-movies";
+import fetchRandomMovies from "@/lib/fetch-random-movies";
+
+// SSR
+export const getServerSideProps = async () => {
+<<<<<<< Tabnine <<<<<<<
+  const [allMovies, recoMovies] = await Promise.all([//-
+  Promise.all([//+
+    fetchMovies(),
+    fetchRandomMovies()
+  ])
+>>>>>>> Tabnine >>>>>>>// {"conversationId":"7e913a90-ac54-4ab4-b86b-ec24936e71dc","source":"instruct"}
+
+  return {
+    props: {
+      allMovies,
+      recoMovies
+    },
+  };
+};
+
+export default function Home({ 
+  allMovies, 
+  recoMovies 
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  console.log( allMovies, recoMovies );
+
+  return (
+    <div className={style.container}>
+      <section>
+        <h3>지금 가장 추천하는 영화</h3>
+        <div className={style.recommendedMovieList}>
+          {recoMovies.slice(0, 3).map((movie) => (
+            <MovieItem key={movie.id} {...movie} />
+          ))}
+        </div>
+      </section>
+      <section>
+        <h3>등록된 모든 영화</h3>
+        <div className={style.allMoviesList}>
+          {allMovies.map((movie) => (
+            <MovieItem key={movie.id} {...movie} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+Home.getLayout = (page: ReactNode) => {
+  return <SearchableLayout>{page}</SearchableLayout>;
+};

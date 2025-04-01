@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container h3 {
+  margin-top: 20px;
+}
+
+.recommendedMovieList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3등분 */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.allMoviesList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3등분 */
+  gap: 15px;
+  margin-top: 20px;
+}

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container h3 {
+  margin-top: 20px;
+}
+
+.movieList {
+  display: flex;
+  flex-wrap: wrap; /* 여러 줄로 넘칠 경우 감싸기 */
+  gap: 15px;
+}

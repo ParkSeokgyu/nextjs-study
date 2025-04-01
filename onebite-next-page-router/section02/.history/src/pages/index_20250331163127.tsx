@@ -1,0 +1,49 @@
+import SearchableLayout from "@/components/searchable-layout";
+import style from "./index.module.css";
+import { ReactNode } from "react";
+import movies from "@/mock/dummy.json";
+import MovieItem from "@/components/movie-item";
+import { InferGetServerSidePropsType } from "next";
+
+// SSR
+export const getServerSideProps = async () => {
+  const [allMovies] = await Promise.all([
+    fetchMovies(),
+    // fetchRandomMovies()
+  ])
+
+  return {
+    props: {
+      movies: data,
+    },
+  };
+};
+
+export default function Home({ movies }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  console.log(movies);
+
+  return (
+    <div className={style.container}>
+      <section>
+        <h3>지금 가장 추천하는 영화</h3>
+        <div className={style.recommendedMovieList}>
+          {movies.slice(0, 3).map((movie) => (
+            <MovieItem key={movie.id} {...movie} />
+          ))}
+        </div>
+      </section>
+      <section>
+        <h3>등록된 모든 영화</h3>
+        <div className={style.allMoviesList}>
+          {movies.map((movie) => (
+            <MovieItem key={movie.id} {...movie} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+Home.getLayout = (page: ReactNode) => {
+  return <SearchableLayout>{page}</SearchableLayout>;
+};

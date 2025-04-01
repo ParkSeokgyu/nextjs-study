@@ -1,0 +1,16 @@
+.container {
+  max-width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+}
+
+.header {
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: 600;
+  color: rgb(229, 9, 20);
+  padding: 20px 0;
+}
